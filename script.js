@@ -1,10 +1,11 @@
 'use strict'
 
-function getSearchInput(){
-  const searchInput = document.getElementById("gitSearch").val
+function getSearchInput(searchInput = 'CabinFeverLive'){
+//   const searchInput = document.getElementById("gitSearch").value
   console.log(searchInput)
-  fetch(`https://api.github.com/users/${searchInput}/repos`)
-    // .then(response => response.json())
+  fetch(`https://api.github.com/users/:${searchInput}/repos`)
+    .then(response => response.json())
+    console.log(response.json)
     // .then((responseJson => {
     //     if (responseJson.status === 'error'){
     //       console.log('Username is not found')
