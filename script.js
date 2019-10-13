@@ -26,7 +26,7 @@ function watchForm(){
   const searchInput = document.getElementById("gitSearch").value
   $('gitSearch').submit(event => {
     event.preventDefault();
-    getSearchValue(searchInput);
+    getSearchInput(searchInput);
   });
 }
 
@@ -34,5 +34,6 @@ function watchForm(){
 
 $(function(){
   console.log('App loaded...waiting next step')
-  getSearchInput()
+  watchForm()
+  console.log(searchInput)
 })
