@@ -30,10 +30,7 @@ function watchForm(){
   });
 }
 
-function getSearchValue(){
-    getSearchInput();
 
-}
 
 $(function(){
   console.log('App loaded...waiting next step')
