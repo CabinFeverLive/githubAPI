@@ -1,31 +1,25 @@
 'use strict'
 
 function getSearchInput(searchInput = 'CabinFeverLive'){
-
   console.log(searchInput)
   fetch(`https://api.github.com/users/${searchInput}/repos`)
     .then(response => response.json())
-    .then((response =>{
+    .then((responseJson =>{
       console.log('responseJson', responseJson)
+      
     }))
-    // .then((responseJson => {
-    //     if (responseJson.status === 'error'){
-    //       console.log('Username is not found')
-    //     }
-    //     //  show error message
-    //     else {
-    //       displayResults(responseJson)
-    //     }
-    //     //  displayResults()
-    //     // displayResults(responseJson))
-    //   }))
-
 }
 
+// fucntion displayResults(responseJson){
+//   let html = ""
+//   for (let i = 0; i < responseJson.length; i++)
+
+
 function watchForm(){
-  const searchInput = document.getElementById("gitSearch").value
-  $('gitSearch').submit(event => {
+  $('form').submit(event => {
     event.preventDefault();
+    const searchInput = document.getElementById("gitSearch").value
+    console.log('searchInput', searchInput)
     getSearchInput(searchInput);
   });
 }
@@ -35,5 +29,4 @@ function watchForm(){
 $(function(){
   console.log('App loaded...waiting next step')
   watchForm()
-  console.log(searchInput)
 })
