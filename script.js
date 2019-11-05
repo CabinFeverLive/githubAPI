@@ -6,13 +6,27 @@ function getSearchInput(searchInput = 'CabinFeverLive'){
     .then(response => response.json())
     .then((responseJson =>{
       console.log('responseJson', responseJson)
-      
+      displayResults(responseJson);
     }))
 }
 
-// fucntion displayResults(responseJson){
-//   let html = ""
-//   for (let i = 0; i < responseJson.length; i++)
+function displayResults(responseJson){
+ let html = `
+    <ul>
+  `
+
+  for (const repo of responseJson) {
+    html += `
+      <li>
+        <h3>${repo.name}</h3>
+          <p>${repo.html_url}</p>
+      </li>
+    `
+  }
+
+  html += `</ul>`
+  $('#searchResults').html(html)
+}
 
 
 function watchForm(){
